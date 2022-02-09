@@ -18,10 +18,10 @@ headers = {
 }
 print("example : paypal.com")
 domain = input('Domain => ')
-response = requests.get('https://www.threatcrowd.org/searchApi/v2/domain/report/?domain='+domain, headers=headers).text
+response = requests.get('https://sonar.omnisint.io/subdomains/'+domain, headers=headers).text
 data = json.loads(response)
 
-for i in data['subdomains']:
+for i in data:
     file = open("result.txt",'a').write("https://"+i+"\n")
     print("Grabbed => ",i)
 print("\nDone, Check on result.txt")
